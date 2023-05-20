@@ -64,9 +64,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(46, 180);
             label2.Name = "label2";
-            label2.Size = new Size(114, 22);
+            label2.Size = new Size(41, 22);
             label2.TabIndex = 2;
-            label2.Text = "Username: ";
+            label2.Text = "ID: ";
             label2.Click += label2_Click;
             // 
             // label3
@@ -98,10 +98,11 @@
             // 
             button1.Location = new Point(141, 319);
             button1.Name = "button1";
-            button1.Size = new Size(83, 33);
+            button1.Size = new Size(88, 43);
             button1.TabIndex = 6;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // linkLabel1
             // 

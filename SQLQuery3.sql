@@ -1,4 +1,4 @@
-use Final;
+USE Final;
 create Table Admin(
 Admin_ID int Not Null primary key ,
 Admin_Name varchar(20),
@@ -14,7 +14,6 @@ Student_Name varchar(30) Not NUll,
 Password varchar(50) Not Null,
 Email varchar(100) Null,
 );
-
 insert into Student(Student_ID,Student_Name,Password,Email)
 Values ('20210262','Omar Ayman','1234','omar@gmail.com'),('20210302','kamal thrwat','12345','kamal@gmail.com'),('20210016','Ahmed Khaled','19876','Ahmed@icloud.com');
 
