@@ -3,6 +3,10 @@ create Table Admin(
 Admin_ID int Not Null primary key ,
 Admin_Name varchar(20),
 );
+alter table Admin 
+add Admin_pass varchar(20) ;
+alter table Admin 
+add Admin_email varchar(30);
 
 Insert Into  .Admin( Admin_ID,Admin_Name)
 Values('1','Amr Fayez'),('2', 'Youssef Ahmed'),('3','Malak Walid'),('4','Youssef Khaled'),('5','Habiba Ahmed');

@@ -76,6 +76,7 @@
             // 
             textBox3.Location = new Point(136, 174);
             textBox3.Margin = new Padding(5, 4, 5, 4);
+            textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.PasswordChar = '*';
             textBox3.Size = new Size(188, 29);
@@ -107,6 +108,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(188, 29);
             textBox1.TabIndex = 23;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -186,6 +188,7 @@
             button1.TabIndex = 34;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -196,6 +199,7 @@
             button2.TabIndex = 35;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -206,6 +210,7 @@
             button3.TabIndex = 36;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // linkLabel1
             // 
@@ -248,6 +253,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(204, 203);
             dataGridView1.TabIndex = 40;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dataGridView2
             // 
@@ -257,6 +263,7 @@
             dataGridView2.RowTemplate.Height = 25;
             dataGridView2.Size = new Size(204, 203);
             dataGridView2.TabIndex = 41;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // Admin
             // 
@@ -290,6 +297,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "Admin";
             Text = "Admin";
+            Load += Admin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);

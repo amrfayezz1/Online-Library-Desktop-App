@@ -7,7 +7,7 @@ namespace UniLibrary
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = OMAR-PC\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
+        SqlConnection con = new SqlConnection("Data Source = MALAK\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
         public Form1()
         {
             InitializeComponent();
