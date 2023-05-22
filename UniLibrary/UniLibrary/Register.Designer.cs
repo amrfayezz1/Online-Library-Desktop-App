@@ -57,7 +57,7 @@
             linkLabel1.Margin = new Padding(5, 0, 5, 0);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(133, 17);
-            linkLabel1.TabIndex = 15;
+            linkLabel1.TabIndex = 21;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Already registered?";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
@@ -68,23 +68,23 @@
             button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
             button1.Size = new Size(133, 48);
-            button1.TabIndex = 14;
+            button1.TabIndex = 20;
             button1.Text = "Register";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(252, 244);
+            textBox2.Location = new Point(252, 209);
             textBox2.Margin = new Padding(5, 4, 5, 4);
             textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(251, 35);
             textBox2.TabIndex = 13;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(252, 164);
+            textBox1.Location = new Point(252, 165);
             textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(251, 35);
@@ -93,7 +93,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 248);
+            label3.Location = new Point(24, 216);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(77, 28);
@@ -103,7 +103,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 168);
+            label2.Location = new Point(24, 172);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(100, 28);
@@ -133,17 +133,17 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(252, 205);
+            textBox3.Location = new Point(252, 246);
             textBox3.Margin = new Padding(5, 4, 5, 4);
             textBox3.Name = "textBox3";
             textBox3.PasswordChar = '*';
             textBox3.Size = new Size(251, 35);
-            textBox3.TabIndex = 17;
+            textBox3.TabIndex = 14;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 209);
+            label4.Location = new Point(24, 250);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(128, 28);
@@ -156,7 +156,7 @@
             textBox6.Margin = new Padding(5, 4, 5, 4);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(251, 35);
-            textBox6.TabIndex = 20;
+            textBox6.TabIndex = 15;
             // 
             // label7
             // 
@@ -183,7 +183,7 @@
             radioButton1.Location = new Point(252, 361);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(107, 32);
-            radioButton1.TabIndex = 22;
+            radioButton1.TabIndex = 17;
             radioButton1.TabStop = true;
             radioButton1.Text = "Admin";
             radioButton1.UseVisualStyleBackColor = true;
@@ -195,7 +195,7 @@
             radioButton2.Location = new Point(416, 361);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(122, 32);
-            radioButton2.TabIndex = 23;
+            radioButton2.TabIndex = 18;
             radioButton2.TabStop = true;
             radioButton2.Text = "Student";
             radioButton2.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@
             textBox4.Margin = new Padding(5, 4, 5, 4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(251, 35);
-            textBox4.TabIndex = 24;
+            textBox4.TabIndex = 16;
             // 
             // label6
             // 

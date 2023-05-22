@@ -13,7 +13,7 @@ namespace UniLibrary
 {
     public partial class Register : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = OMAR-PC\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
+        SqlConnection con = new SqlConnection("Data Source =MALAK\\mssqlserver01; Initial Catalog =Final; Integrated Security = True");
         public Register()
         {
             InitializeComponent();
@@ -49,10 +49,11 @@ namespace UniLibrary
                         return;
                     }
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Admin (Admin_ID, Admin_Name, Admin_PW) VALUES (@ID, @Name, @PW)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Admin (Admin_ID, Admin_Name, Admin_PW, Admin_email) VALUES (@ID, @Name, @PW, @Mail)", con);
                     cmd.Parameters.AddWithValue("@ID", textBox1.Text);
                     cmd.Parameters.AddWithValue("@Name", textBox4.Text);
                     cmd.Parameters.AddWithValue("@PW", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@Mail", textBox2.Text);
                     cmd.ExecuteNonQuery();
                 }
                 else if (radioButton2.Checked)
@@ -75,9 +76,9 @@ namespace UniLibrary
                     cmd.ExecuteNonQuery();
 
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO StudentPhone (Student_ID, Phone_num) VALUES (@ID2, @Phone)", con);
-                    cmd.Parameters.AddWithValue("@ID2", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@Phone", textBox6.Text);
-                    cmd.ExecuteNonQuery();
+                    cmd2.Parameters.AddWithValue("@ID2", textBox1.Text);
+                    cmd2.Parameters.AddWithValue("@Phone", textBox6.Text);
+                    cmd2.ExecuteNonQuery();
                 }
                 else
                 {
@@ -116,6 +117,11 @@ namespace UniLibrary
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

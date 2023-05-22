@@ -43,7 +43,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(153, 54);
+            pictureBox1.Location = new Point(162, 60);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(112, 68);
             pictureBox1.TabIndex = 0;
@@ -54,7 +54,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(153, 29);
             label1.Name = "label1";
-            label1.Size = new Size(60, 22);
+            label1.Size = new Size(76, 28);
             label1.TabIndex = 1;
             label1.Text = "Login";
             label1.Click += label1_Click;
@@ -64,7 +64,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(46, 180);
             label2.Name = "label2";
-            label2.Size = new Size(41, 22);
+            label2.Size = new Size(52, 28);
             label2.TabIndex = 2;
             label2.Text = "ID: ";
             label2.Click += label2_Click;
@@ -74,7 +74,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(46, 246);
             label3.Name = "label3";
-            label3.Size = new Size(106, 22);
+            label3.Size = new Size(136, 28);
             label3.TabIndex = 3;
             label3.Text = "Password:";
             label3.Click += label3_Click;
@@ -83,7 +83,7 @@
             // 
             textBox1.Location = new Point(179, 177);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(148, 29);
+            textBox1.Size = new Size(148, 35);
             textBox1.TabIndex = 4;
             // 
             // textBox2
@@ -91,17 +91,18 @@
             textBox2.Location = new Point(179, 243);
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(148, 29);
+            textBox2.Size = new Size(148, 35);
             textBox2.TabIndex = 5;
             // 
             // button1
             // 
+            button1.BackColor = Color.MediumAquamarine;
             button1.Location = new Point(141, 319);
             button1.Name = "button1";
             button1.Size = new Size(88, 43);
             button1.TabIndex = 6;
             button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // linkLabel1
@@ -110,7 +111,7 @@
             linkLabel1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             linkLabel1.Location = new Point(153, 365);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(54, 15);
+            linkLabel1.Size = new Size(63, 17);
             linkLabel1.TabIndex = 7;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Register";
@@ -118,7 +119,7 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(12F, 22F);
+            AutoScaleDimensions = new SizeF(15F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(376, 389);

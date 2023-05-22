@@ -50,13 +50,14 @@
             label9 = new Label();
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(136, 251);
+            textBox6.Location = new Point(161, 251);
             textBox6.Margin = new Padding(5, 4, 5, 4);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(188, 29);
@@ -74,13 +75,12 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(136, 174);
+            textBox3.Location = new Point(161, 176);
             textBox3.Margin = new Padding(5, 4, 5, 4);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.PasswordChar = '*';
             textBox3.Size = new Size(188, 29);
-            textBox3.TabIndex = 26;
+            textBox3.TabIndex = 24;
             // 
             // label4
             // 
@@ -94,16 +94,15 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(136, 213);
+            textBox2.Location = new Point(161, 213);
             textBox2.Margin = new Padding(5, 4, 5, 4);
             textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(188, 29);
-            textBox2.TabIndex = 24;
+            textBox2.TabIndex = 25;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(136, 133);
+            textBox1.Location = new Point(161, 130);
             textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(188, 29);
@@ -135,7 +134,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(136, 80);
+            label1.Location = new Point(136, 22);
             label1.Name = "label1";
             label1.Size = new Size(62, 29);
             label1.TabIndex = 29;
@@ -144,7 +143,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(136, 326);
+            textBox4.Location = new Point(161, 326);
             textBox4.Margin = new Padding(5, 4, 5, 4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(188, 29);
@@ -162,10 +161,9 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(136, 288);
+            textBox5.Location = new Point(161, 288);
             textBox5.Margin = new Padding(5, 4, 5, 4);
             textBox5.Name = "textBox5";
-            textBox5.PasswordChar = '*';
             textBox5.Size = new Size(188, 29);
             textBox5.TabIndex = 31;
             // 
@@ -195,7 +193,7 @@
             button2.BackColor = Color.FromArgb(255, 128, 0);
             button2.Location = new Point(136, 403);
             button2.Name = "button2";
-            button2.Size = new Size(75, 35);
+            button2.Size = new Size(88, 35);
             button2.TabIndex = 35;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = false;
@@ -204,9 +202,9 @@
             // button3
             // 
             button3.BackColor = Color.IndianRed;
-            button3.Location = new Point(249, 403);
+            button3.Location = new Point(264, 403);
             button3.Name = "button3";
-            button3.Size = new Size(75, 35);
+            button3.Size = new Size(85, 35);
             button3.TabIndex = 36;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
@@ -215,7 +213,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(285, 499);
+            linkLabel1.Location = new Point(18, 493);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(69, 23);
             linkLabel1.TabIndex = 37;
@@ -227,7 +225,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial Narrow", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(468, 263);
+            label8.Location = new Point(699, 263);
             label8.Name = "label8";
             label8.Size = new Size(98, 29);
             label8.TabIndex = 38;
@@ -238,7 +236,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Arial Narrow", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(468, 22);
+            label9.Location = new Point(699, 22);
             label9.Name = "label9";
             label9.Size = new Size(102, 29);
             label9.TabIndex = 39;
@@ -250,8 +248,9 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(425, 54);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(204, 203);
+            dataGridView1.Size = new Size(644, 203);
             dataGridView1.TabIndex = 40;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -260,17 +259,30 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(425, 295);
             dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(204, 203);
+            dataGridView2.Size = new Size(644, 203);
             dataGridView2.TabIndex = 41;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.Plum;
+            button4.Location = new Point(195, 483);
+            button4.Name = "button4";
+            button4.Size = new Size(154, 33);
+            button4.TabIndex = 42;
+            button4.Text = "Statistics Report";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(641, 531);
+            ClientSize = new Size(1101, 531);
+            Controls.Add(button4);
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             Controls.Add(label9);
@@ -327,5 +339,6 @@
         private Label label9;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private Button button4;
     }
 }

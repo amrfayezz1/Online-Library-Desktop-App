@@ -7,7 +7,7 @@ namespace UniLibrary
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = MALAK\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
+        SqlConnection con = new SqlConnection("Data Source =MALAK\\mssqlserver01; Initial Catalog =Final; Integrated Security = True");
         public Form1()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace UniLibrary
             if (studentTable.Rows.Count > 0)
             {
                 // If the entered ID and Password belong to a student, open the Student form
-                Student student = new Student();
+                Student student = new Student(int.Parse(textBox1.Text));
                 this.Hide();
                 student.Show();
             }
@@ -74,9 +74,9 @@ namespace UniLibrary
                 if (adminTable.Rows.Count > 0)
                 {
                     // If the entered ID and Password belong toan admin, open the Admin form
+                    this.Hide();
                     Admin admin = new Admin();
-                    admin.ShowDialog();
-                    Hide();
+                    admin.Show();
                 }
                 else
                 {

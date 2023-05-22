@@ -18,7 +18,7 @@ namespace UniLibrary
 {
     public partial class Admin : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = MALAK\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
+        SqlConnection con = new SqlConnection("Data Source =MALAK\\mssqlserver01; Initial Catalog =Final; Integrated Security = True");
 
 
         public Admin()
@@ -62,15 +62,19 @@ namespace UniLibrary
             float.TryParse(textBox5.Text, out price);
             int Copies = int.Parse(textBox4.Text);
             string bookCategory = textBox2.Text;
+
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Book (Book_ID,Book_Name,Book_Author,price,Number_Of_Copies) VALUES (@BookID, @Book_Name, @Book_Author, @Price, @Number_Of_Copies)", con);
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Book (Book.Book_ID, Book.Book_Name, Book.Book_Author, Book.price, Book.Number_Of_Copies) VALUES (@BookID, @Book_Name, @Book_Author, @Price, @Number_Of_Copies)", con);
             cmd.Parameters.AddWithValue("@BookID", Book_ID);
             cmd.Parameters.AddWithValue("@Book_Name", bookN);
             cmd.Parameters.AddWithValue("@Book_Author", bookAuthor);
-            cmd.Parameters.AddWithValue("@price", price);
-            cmd.Parameters.AddWithValue("@Num_Of_Copies", Copies);
+            cmd.Parameters.AddWithValue("@Price", price);
+            cmd.Parameters.AddWithValue("@Number_Of_Copies", Copies);
+
             int rowsAffected = cmd.ExecuteNonQuery();
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO Category (Book_ID,Book_category) VALUES (@BookID, @Book_category)", con);
+
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO Category (Category.Book_ID,Category.Book_category) VALUES (@BookID, @Book_category)", con);
             cmd2.Parameters.AddWithValue("@BookID", Book_ID);
             cmd2.Parameters.AddWithValue("@Book_category", bookCategory);
             int rowsAffected2 = cmd2.ExecuteNonQuery();
@@ -78,6 +82,10 @@ namespace UniLibrary
             if (rowsAffected > 0 && rowsAffected2 > 0)
             {
                 MessageBox.Show(" A new Book Added Successfully :) ");
+
+                this.Close();
+                Admin newAd = new Admin();
+                newAd.Show();
             }
             else
             {
@@ -121,15 +129,17 @@ namespace UniLibrary
             con.Close();
             if (rowsAffected1 > 0 && rowsAffected > 0)
             {
-                MessageBox.Show(" Book " + bookN + "updated Successfully :) ");
+                MessageBox.Show(" Book " + bookN + " updated Successfully :) ");
+
+                this.Close();
+                Admin newAd = new Admin();
+                newAd.Show();
             }
             else
             {
                 MessageBox.Show("failed to update");
 
             }
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -140,12 +150,16 @@ namespace UniLibrary
             cmd.Parameters.AddWithValue("@BookID", Book_ID);
             cmd.ExecuteNonQuery();
             con.Close();
+
+            this.Close();
+            Admin newAd = new Admin();
+            newAd.Show();
         }
 
         private void Admin_Load(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Book_ID, Book_Name,Book_Author, price,Num_Of_Copies,Book_category FROM Book, Category where Number_Of_Copies>0 and Book.Book_ID= Category.Book_ID", con);
+            SqlCommand cmd = new SqlCommand("SELECT Book.Book_ID, Book_Name,Book_Author, price,Number_Of_Copies,Book_category FROM Book, Category where Number_Of_Copies>0 and Book.Book_ID= Category.Book_ID", con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -178,6 +192,13 @@ namespace UniLibrary
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Report rpt = new Report();
+            rpt.Show();
         }
     }
 }

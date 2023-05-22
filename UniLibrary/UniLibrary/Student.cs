@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.VariantTypes;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,17 +17,21 @@ namespace UniLibrary
 {
     public partial class Student : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = MALAK\\SQLEXPRESS01; Initial Catalog =Final; Integrated Security = True");
-
-        public Student()
+        SqlConnection con = new SqlConnection("Data Source =MALAK\\mssqlserver01; Initial Catalog =Final; Integrated Security = True");
+        private int sID;
+        public Student(int id)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            sID = id;
         }
 
         private void Student_Load(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Book", con);
+            label12.Text = sID.ToString();
+
+            // load books
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Book where Number_Of_Copies > 0", con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -39,6 +44,23 @@ namespace UniLibrary
             dataGridView1.Columns[2].HeaderText = "Author";
             dataGridView1.Columns[3].HeaderText = "Price";
             dataGridView1.Columns[4].HeaderText = "Copies";
+
+            con.Close();
+            // load user data
+            con.Open();
+            SqlCommand query = new SqlCommand("SELECT Student_Name, Password, Email FROM Student WHERE Student_ID = @ID", con);
+            query.Parameters.AddWithValue("@ID", this.sID);
+
+            // Execute the query and retrieve the data using a SqlDataReader
+            SqlDataReader reader = query.ExecuteReader();
+            reader.Read();
+
+            textBox2.Text = reader.GetString(0);
+            textBox3.Text = reader.GetString(1);
+            textBox1.Text = reader.GetString(2);
+            label12.Text = sID.ToString();
+
+
             con.Close();
         }
 
@@ -55,24 +77,20 @@ namespace UniLibrary
             SqlCommand command = new SqlCommand("UPDATE Student SET Student_Name = @Username, Email = @Email WHERE Student_ID = @ID", con);
             command.Parameters.AddWithValue("@Username", textBox2.Text);
             command.Parameters.AddWithValue("@Email", textBox1.Text);
-            command.Parameters.AddWithValue("@Phone", textBox6.Text);
-            command.Parameters.AddWithValue("@ID", textBox3.Text);
+            command.Parameters.AddWithValue("@ID", sID);
 
             int rowsAffected = command.ExecuteNonQuery();
-
-            // Update the StudentPhone table
-            SqlCommand cmd = new SqlCommand("UPDATE StudentPhone SET Phone_num = @Phone WHERE Student_ID = @ID", con);
-            cmd.Parameters.AddWithValue("@Phone", textBox6.Text);
-            cmd.Parameters.AddWithValue("@ID", textBox3.Text);
-            int rowsAffected2 = cmd.ExecuteNonQuery();
 
             // Close the connection
             con.Close();
 
             // Display a message indicating the number of rows affectedby the update
-            if (rowsAffected > 0 && rowsAffected2 > 0)
+            if (rowsAffected > 0)
             {
                 MessageBox.Show("Student data updated successfully!");
+                this.Close();
+                Student newSt = new Student(this.sID);
+                newSt.Show();
             }
             else
             {
@@ -88,10 +106,23 @@ namespace UniLibrary
         private void button2_Click(object sender, EventArgs e)
         {
             int bookID = int.Parse(textBoxBook.Text);
-            int studID = int.Parse(textBoxBorrower.Text);
+            int studID = this.sID;
             DateTime from = From.Value;
             DateTime to = To.Value;
             int numDays = (int)(to - from).TotalDays;
+
+            double price;
+
+            SqlCommand query = new SqlCommand("SELECT price FROM Book WHERE Book_ID = @ID", con);
+            query.Parameters.AddWithValue("@ID", bookID);
+
+            // Execute the query and retrieve the data using a SqlDataReader
+            con.Open();
+            SqlDataReader reader = query.ExecuteReader();
+            reader.Read();
+            price = reader.GetDouble(0);
+            con.Close();
+
             if (numDays > 0)
             {
                 con.Open();
@@ -110,7 +141,24 @@ namespace UniLibrary
                 con.Close();
                 if (rowsAffected > 0 && rowsAffected2 > 0)
                 {
-                    MessageBox.Show("Book reserved successfully!");
+                    con.Open();
+                    SqlCommand queryZ = new SqlCommand("SELECT Student_ID FROM Dependent WHERE Student_ID = @ID", con);
+                    queryZ.Parameters.AddWithValue("@ID", this.sID);
+
+                    // Execute the query and retrieve the data using a SqlDataReader
+                    SqlDataReader readerZ = queryZ.ExecuteReader();
+                    if (readerZ.Read())
+                    {
+                        MessageBox.Show("Book reserved successfully for: " + price * 0.8 + " L.E. !\n(Dependent with 20% discount)");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Book reserved successfully for: " + price + " L.E. !\n(Not Dependent)");
+                    }
+                    con.Close();
+                    this.Close();
+                    Student newSt = new Student(this.sID);
+                    newSt.Show();
                 }
                 else
                 {
@@ -120,14 +168,11 @@ namespace UniLibrary
             else { MessageBox.Show("Date invalid"); return; }
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
         }
     }
 }
